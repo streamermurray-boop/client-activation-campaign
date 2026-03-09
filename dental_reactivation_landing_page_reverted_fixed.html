@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dental Patient Reactivation Campaign</title>
+  <style>
+    :root{
+      --bg:#f4f8fb;
+      --card:#ffffff;
+      --text:#12202f;
+      --muted:#5c6f82;
+      --accent:#0f5f8c;
+      --accent-2:#1ea7a0;
+      --line:#dbe6ef;
+      --shadow:0 18px 45px rgba(17,41,63,.12);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,Arial,Helvetica,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(30,167,160,.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(15,95,140,.12), transparent 32%),
+        linear-gradient(180deg,#f8fbfe 0%, var(--bg) 100%);
+      line-height:1.5;
+    }
+    .wrap{max-width:1150px;margin:0 auto;padding:28px}
+    .hero{
+      padding:28px 0 18px;
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:28px;
+      align-items:center;
+    }
+    .badge{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:#e7f5f6;
+      color:#0c5d66;
+      font-weight:700;
+      font-size:13px;
+      letter-spacing:.2px;
+      margin-bottom:18px;
+    }
+    h1{
+      font-size:56px;
+      line-height:1.02;
+      margin:0 0 18px;
+      letter-spacing:-1.5px;
+    }
+    .lead{
+      font-size:19px;
+      color:var(--muted);
+      max-width:700px;
+      margin:0 0 24px;
+    }
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:20px;
+    }
+    .btn{
+      text-decoration:none;
+      padding:14px 20px;
+      border-radius:14px;
+      font-weight:700;
+      display:inline-block;
+      box-shadow:var(--shadow);
+    }
+    .btn.primary{background:var(--accent); color:#fff;}
+    .btn.secondary{background:#fff; color:var(--accent); border:1px solid var(--line); box-shadow:none;}
+    .hero-card,.card{
+      background:var(--card);
+      border:1px solid rgba(219,230,239,.8);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .hero-card{padding:24px}
+    .stat-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin-top:10px;
+    }
+    .mini{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      background:#fcfeff;
+    }
+    .mini .label{
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:6px;
+    }
+    .mini .value{
+      font-size:28px;
+      font-weight:800;
+      letter-spacing:-.6px;
+    }
+    .section{padding:18px 0 10px}
+    .section h2{
+      font-size:34px;
+      margin:0 0 10px;
+      letter-spacing:-.8px;
+    }
+    .section p.sub{
+      color:var(--muted);
+      margin:0 0 22px;
+      font-size:17px;
+      max-width:760px;
+    }
+    .problem{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:8px;
+    }
+    .revenue-box{
+      background:linear-gradient(135deg,#0f5f8c,#1b7aa2 55%, #1ea7a0);
+      color:#fff;
+      padding:28px;
+      border-radius:26px;
+      box-shadow:var(--shadow);
+    }
+    .revenue-box h3{margin:0 0 10px;font-size:26px}
+    .revenue-list{
+      display:grid;
+      gap:14px;
+      margin-top:18px;
+    }
+    .rev-item{
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:18px;
+      padding:14px 16px;
+    }
+    .rev-item strong{display:block;font-size:22px}
+    .timeline{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .step-num{
+      width:44px;height:44px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      background:#e7f2f9;color:var(--accent);font-weight:800;margin-bottom:14px;
+    }
+    .message{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      background:#fbfdff;
+      margin-top:14px;
+    }
+    .message .subject{
+      font-weight:800;
+      margin-bottom:10px;
+      color:var(--accent);
+    }
+    .example{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px;
+      align-items:start;
+    }
+    .funnel{
+      border-radius:24px;
+      padding:22px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+    .bar{
+      margin:14px 0 10px;
+      background:#eef4f8;
+      border-radius:999px;
+      overflow:hidden;
+      height:16px;
+    }
+    .bar span{
+      display:block;
+      height:100%;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    }
+    .footer{
+      padding:24px 0 50px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    @media (max-width: 900px){
+      .hero,.problem,.example,.timeline{grid-template-columns:1fr}
+      h1{font-size:40px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <div class="badge">Dental Patient Reactivation Campaign</div>
+        <h1>Bring inactive patients back and recover lost revenue.</h1>
+        <p class="lead">
+          Many dental clinics lose a surprising amount of revenue each year from patients who simply stop coming back.
+          This campaign is designed to reconnect with inactive patients and turn missed opportunities into booked checkups and hygiene appointments.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="#campaign">View campaign example</a>
+          <a class="btn secondary" href="#revenue">See revenue potential</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3 style="margin:0 0 12px;font-size:24px;">Example opportunity</h3>
+        <p style="margin:0;color:var(--muted);">
+          If a clinic reaches inactive patients and only a small percentage return, the financial impact can be significant.
+        </p>
+        <div class="stat-grid">
+          <div class="mini">
+            <div class="label">Inactive patients contacted</div>
+            <div class="value">1000</div>
+          </div>
+          <div class="mini">
+            <div class="label">Estimated response rate</div>
+            <div class="value">30%</div>
+          </div>
+          <div class="mini">
+            <div class="label">Returning appointments</div>
+            <div class="value">300</div>
+          </div>
+          <div class="mini">
+            <div class="label">Estimated extra revenue</div>
+            <div class="value">£20,000</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Why clinics lose money from inactive patients</h2>
+      <p class="sub">
+        Often these patients are not unhappy — they simply forget to book, delay their visit, or never get around to returning.
+        The clinic has already spent time and money acquiring them, so every inactive patient is a missed revenue opportunity.
+      </p>
+      <div class="problem">
+        <div class="card" style="padding:24px">
+          <h3>The problem</h3>
+          <p>Patients forget to rebook, hygiene visits get delayed, and checkups fall through the cracks. Over time, this can leave a large number of patients inactive.</p>
+        </div>
+        <div class="card" style="padding:24px">
+          <h3>The opportunity</h3>
+          <p>A short, well-structured campaign can bring a percentage of those patients back into the practice and help fill underused appointment slots.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="revenue">
+      <div class="revenue-box">
+        <h3>Potential revenue example</h3>
+        <p style="margin:0;max-width:760px;">
+          Even modest response rates can generate meaningful returns for a dental clinic.
+          Below is a simple illustration based on a £120 average appointment value.
+        </p>
+        <div class="revenue-list">
+          <div class="rev-item"><strong>50 returning patients → £4,000</strong>This level of reactivation can easily happen in a moderate patient database and already creates meaningful extra monthly revenue.</div>
+          <div class="rev-item"><strong>100 returning patients → £7,000</strong>For clinics with larger databases, even a modest response rate can generate several thousand pounds in additional bookings.</div>
+          <div class="rev-item"><strong>500 returning patients → £20,000</strong>Large practices with thousands of inactive patients can unlock extremely significant revenue from their existing patient base.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>How the campaign works</h2>
+      <p class="sub">
+        The structure is simple, easy to understand, and focused on one clear goal: getting inactive patients to come back.
+      </p>
+      <div class="timeline">
+        <div class="card" style="padding:24px">
+          <div class="step-num">1</div>
+          <h3>Identify inactive patients</h3>
+          <p>Build a list of patients who have not visited within the last 6–12 months.</p>
+        </div>
+        <div class="card" style="padding:24px">
+          <div class="step-num">2</div>
+          <h3>Send a short sequence</h3>
+          <p>Use a concise, friendly reminder campaign inviting them to book a hygiene or checkup appointment.</p>
+        </div>
+        <div class="card" style="padding:24px">
+          <div class="step-num">3</div>
+          <h3>Turn replies into bookings</h3>
+          <p>Interested patients are directed back to the clinic to schedule their visit and return to active care.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section example" id="campaign">
+      <div class="card" style="padding:24px">
+        <h2 style="font-size:32px;margin:0 0 6px;">Example reactivation message</h2>
+        <p class="sub" style="margin-bottom:8px;">This is the kind of message a clinic could send to inactive patients.</p>
+
+        <div class="message">
+          <div class="subject">Subject: Quick reminder from the clinic</div>
+          <div>
+            Hi,<br><br>
+            Our records show you may be due for a dental checkup or hygiene appointment.<br><br>
+            We currently have a few appointments available this month if you'd like to book.<br><br>
+            If you'd like to schedule a visit, our team would be happy to help.
+          </div>
+        </div>
+      </div>
+
+      <div class="funnel">
+        <h3 style="margin:0 0 10px;font-size:25px;">Simple campaign funnel</h3>
+        <div style="font-weight:700;">Inactive patient list</div>
+        <div class="bar"><span style="width:100%"></span></div>
+
+        <div style="font-weight:700;">Patients who open / engage</div>
+        <div class="bar"><span style="width:45%"></span></div>
+
+        <div style="font-weight:700;">Patients who respond</div>
+        <div class="bar"><span style="width:18%"></span></div>
+
+        <div style="font-weight:700;">Appointments booked</div>
+        <div class="bar"><span style="width:10%"></span></div>
+
+        <p style="margin:14px 0 0;color:var(--muted);">
+          The exact percentages will vary by clinic, but the principle is simple:
+          a modest reactivation rate can still create meaningful extra revenue.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card" style="padding:24px">
+        <h2 style="font-size:32px;margin:0 0 6px;">Next step</h2>
+        <p class="sub" style="margin-bottom:0;max-width:none;">
+          If this looks interesting, the campaign can be tailored specifically to a clinic’s inactive patient base, appointment types, and business goals.
+          A personalised version can go into much more detail on messaging, sequencing, and implementation.
+        </p>
+      </div>
+    </section>
+
+    <div class="footer">
+      Sample preview page for a dental patient reactivation offer.
+    </div>
+  </div>
+</body>
+</html>
